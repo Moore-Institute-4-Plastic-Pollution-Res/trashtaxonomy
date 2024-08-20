@@ -1,23 +1,14 @@
-
+# Load packages
 library(shiny)
 library(dplyr)
 library(data.table)
-#library(crosstalk)
 library(shinyjs)
 library(shinythemes)
 library(DT)
 library(shinyhelper)
 library(shinyTree)
-#library(igraph)
-#library(listviewer)
-#library(treemap)
 library(data.tree)
-#library(collapsibleTree)
 library(tidyr)
-#library(igraph)
-#library(listviewer)
-#library(treemap)
-#library(igraph)
 
 timeoutSeconds <- 3000
 

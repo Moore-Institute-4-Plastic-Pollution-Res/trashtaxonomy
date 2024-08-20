@@ -7,4 +7,4 @@ Trash Taxonomy is a portal for relational tables that relate trash survey nomenc
 
 - Use the web app: [https://moore-institute-4-plastic-pollution-res.github.io/microplastic_analysis_WebR/](https://moore-institute-4-plastic-pollution-res.github.io/trashtaxonomy_WebR/)
 
-- The code for the app is in [app.R](https://github.com/Moore-Institute-4-Plastic-Pollution-Res/microplastic_analysis_WebR/blob/main/app.R)
+- The code for the app is in [app.R](https://github.com/Moore-Institute-4-Plastic-Pollution-Res/trashtaxonomy_WebR/blob/main/app.R)

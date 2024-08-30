@@ -40,7 +40,6 @@ idleTimer();", timeoutSeconds*1000, timeoutSeconds, timeoutSeconds*1000)
 
 
 ui <- fluidPage(
-  tags$script(src = "https://cdn.plot.ly/plotly-2.11.1.min.js"),
   tags$script(inactivity),    
   theme=shinytheme("cyborg"),
   titlePanel("Trash Taxonomy"),
@@ -565,6 +564,8 @@ ui <- fluidPage(
     tabPanel("Query Tool",
              titlePanel(tags$h4("Query the Relational Tables with Trash Survey Sheets")),
              fluidRow(
+               tags$script(src = "https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"),
+               tags$link(rel = "stylesheet", href = "https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"),
                column(2, 
                       fileInput('df', "Choose CSV File", multiple = FALSE, accept = c(".csv")),
                       

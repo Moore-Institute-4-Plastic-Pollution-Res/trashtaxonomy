@@ -40,6 +40,7 @@ idleTimer();", timeoutSeconds*1000, timeoutSeconds, timeoutSeconds*1000)
 
 
 ui <- fluidPage(
+  tags$script(src = "https://cdn.plot.ly/plotly-2.11.1.min.js"),
   tags$script(inactivity),    
   theme=shinytheme("cyborg"),
   titlePanel("Trash Taxonomy"),

@@ -40,8 +40,7 @@ idleTimer();", timeoutSeconds*1000, timeoutSeconds, timeoutSeconds*1000)
 
 
 ui <- fluidPage(
-  tags$script(inactivity),    
-  theme=shinytheme("cyborg"),
+  tags$script(inactivity), 
   titlePanel("Trash Taxonomy"),
   tags$head(
     # Note the wrapping of the string in HTML()
@@ -565,7 +564,35 @@ ui <- fluidPage(
              titlePanel(tags$h4("Query the Relational Tables with Trash Survey Sheets")),
              fluidRow(
                tags$script(src = "https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"),
-               tags$link(rel = "stylesheet", href = "https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"),
+               # Custom CSS for dark mode applied to all DataTables
+               tags$style(HTML("
+    .dataTable thead {
+      background-color: #333;
+      color: #fff;
+    }
+    
+    .dataTable tbody tr {
+      background-color: #444;
+      color: #ddd;
+    }
+    
+    .dataTable tbody tr:hover {
+      background-color: #555;
+    }
+    
+    .dataTable {
+      border: 1px solid #333;
+    }
+    
+    .dataTables_length,
+    .dataTables_filter,
+    .dataTables_info,
+    .dataTables_paginate {
+      color: #ddd;
+    }
+  ")),
+               
+               
                column(2, 
                       fileInput('df', "Choose CSV File", multiple = FALSE, accept = c(".csv")),
                       
@@ -889,15 +916,15 @@ server <- function(input,output,session) {
   
   output$contents <- renderDataTable({
     df()[, c("material","items",  input$variable)]
-  }, style="bootstrap")
+  }, style="bootstrap4")
   
   output$contents1 <- renderDataTable({
     df()[, c("material","PrimeMaterial")] %>% distinct()
-  }, selection=list(mode="single", target="row"), style="bootstrap")
+  }, selection=list(mode="single", target="row"), style="bootstrap4")
   
   output$contents2 <- renderDataTable({
     df()[, c("items","PrimeItem")] %>% distinct()
-  }, selection=list(mode="single", target="row"), style="bootstrap")
+  }, selection=list(mode="single", target="row"), style="bootstrap4")
   
   output$downloadData1 <- downloadHandler(    
     filename = function() {
@@ -1001,35 +1028,35 @@ server <- function(input,output,session) {
   
   output$table1 = DT::renderDataTable({
     Materials_Alias
-  }, style="bootstrap")
+  }, style="bootstrap4")
   
   output$table2 = DT::renderDataTable({
     Materials_Hierarchy
-  }, style="bootstrap")
+  }, style="bootstrap4")
   
   output$table3 = DT::renderDataTable({
     Items_Alias
-  }, style="bootstrap")
+  }, style="bootstrap4")
   
   output$table4 = DT::renderDataTable({
     Items_Hierarchy
-  }, style="bootstrap")
+  }, style="bootstrap4")
   
   output$table5 = DT::renderDataTable({
     Material_Item_Relation
-  }, style="bootstrap")
+  }, style="bootstrap4")
   
   output$table6 = DT::renderDataTable({
     Brand_Manufacturer_Relation
-  }, style="bootstrap")
+  }, style="bootstrap4")
   
   output$table7 = DT::renderDataTable({
     Brand_Item_Relation
-  }, style="bootstrap")
+  }, style="bootstrap4")
   
   output$table8 = DT::renderDataTable({
     PrimeUnclassifiable
-  }, style="bootstrap")
+  }, style="bootstrap4")
   
 }
 
